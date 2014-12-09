@@ -1,0 +1,6 @@
+name             'export-node'
+maintainer       'Matt Wrock'
+maintainer_email 'matt@mattwrock.com'
+license          'Apache 2.0'
+description      'Exports node attributes to a json file'
+version          '0.1.0'
