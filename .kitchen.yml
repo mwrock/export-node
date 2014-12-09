@@ -11,5 +11,5 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[test-export-node::default]
+      - recipe[export-node-tests::default]
       - recipe[export-node::default]
