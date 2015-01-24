@@ -6,7 +6,7 @@ export-node exports node attributes to a json file so that it can be retrieved f
 
 Add the export-node cookbook to the end of the runlist in your kitchen suites:
 
-```
+```yaml
 suites:
   - name: my-suite
     run_list:
@@ -16,7 +16,7 @@ suites:
 
 Now your tests can access any node attribute by parsing the file's json to a hash:
 
-```
+```ruby
 describe file('/etc/haproxy/haproxy.cfg') do
   let(:node) { JSON.parse(IO.read('/tmp/kitchen/chef_node.json')) }
   let(:subnet) {
