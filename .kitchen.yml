@@ -6,7 +6,13 @@ provisioner:
   name: chef_zero
 
 platforms:
-  - name: ubuntu-12.04
+- name: ubuntu-12.04
+- name: windows-2012R2
+  transport:
+    name: winrm
+  driver_config:
+    box: mwrock/Windows2012R2
+    gui: true
 
 suites:
   - name: default

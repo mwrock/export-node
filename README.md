@@ -18,7 +18,7 @@ Now your tests can access any node attribute by parsing the file's json to a has
 
 ```ruby
 describe file('/etc/haproxy/haproxy.cfg') do
-  let(:node) { JSON.parse(IO.read('/tmp/kitchen/chef_node.json')) }
+  let(:node) { JSON.parse(IO.read('/tmp/export-node/node.json')) }
   let(:subnet) {
     ip = node["automatic"]["ipaddress"]
     ip[0,ip.rindex(".")]
@@ -54,3 +54,5 @@ describe file('/etc/haproxy/haproxy.cfg') do
   }
 end
 ```
+
+Windows instances will store the node data in `%TEMP%\export-node\node.json` and other platforms will store the node data in `/tmp/export-node/node.json`.
