@@ -5,8 +5,17 @@ driver:
 provisioner:
   name: dokken
 
+transport:
+  name: dokken
+
+verifier:
+  root_path: '/opt/verifier'
+  sudo: false
+
 platforms:
 - name: ubuntu-12.04
+  driver:
+      image: ubuntu:12.04
 
 suites:
   - name: default
