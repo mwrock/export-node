@@ -10,10 +10,12 @@ else
   set :backend, :exec
 end
 
-describe file(File.join(ENV['TEMP'] || '/tmp', 'export-node', 'node.json')) do
-  let(:parent) { File.join(ENV['TEMP'] || '/tmp', 'kitchen') }
-  let(:node) { JSON.parse(IO.read(File.join(parent, 'chef_node.json'))) }
+export_path = :os.family == 'windows' ? '/opt/kitchen/export-node' : ENV['TEMP']
 
+file_name = File.join(export_path, 'chef_node.json')
+
+describe file(file_name) do
+  let(:node) { JSON.parse(IO.read(file_name)) }
   it { should be_file }
   its(:content) { should match(/^mac: #{node['automatic']['macaddress']}$/) }
 end
