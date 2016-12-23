@@ -55,4 +55,6 @@ describe file('/etc/haproxy/haproxy.cfg') do
 end
 ```
 
-Windows instances will store the node data in `%TEMP%\kitchen\chef_node.json` and other platforms will store the node data in `/tmp/kitchen/chef_node.json`.
+Windows instances will store the node data in `%TEMP%\kitchen\chef_node.json` and other platforms will store the node data in `/tmp/kitchen/chef_node.json`. 
+
+The export location can be changed by setting `node['export-node']['location']`to a folder.
