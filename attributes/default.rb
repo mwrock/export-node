@@ -1,0 +1,1 @@
+default['export-node']['location']  = File.join(ENV["TEMP"] || "/tmp", "kitchen")
